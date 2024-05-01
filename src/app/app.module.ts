@@ -13,6 +13,9 @@ import { FooterComponent } from './shared/body/footer/footer.component';
 import { ProfessionalContributionsComponent } from './components/professional-contributions/professional-contributions.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule
   ],
   providers: [
     provideClientHydration(),

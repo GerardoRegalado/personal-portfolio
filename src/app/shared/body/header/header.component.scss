@@ -1,0 +1,32 @@
+.mat-toolbar {
+  background-color: transparent;
+  height: 15vh;
+  width: 100%;
+}
+
+img {
+  width: 5%;
+  margin: 1vw;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.link {
+  position: relative;
+  margin: 0.5vw;
+  cursor: pointer;
+  color: #FEC83D;
+  font-weight: 400;
+  padding: 1vh 2vh;
+}
+
+.link:hover {
+  animation: heartBeat;
+  animation-duration: 2s;
+}
+

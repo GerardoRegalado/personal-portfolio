@@ -1,1 +1,11 @@
-<p>header works!</p>
+<mat-toolbar>
+  <img src="assets/favicon.png" alt="does not work">
+  <div class="navbar">
+    <span class="link" (click)="scrollTo('home')">Home</span>
+    <span class="link" (click)="scrollTo('about-me')">About Me</span>
+    <span class="link" (click)="scrollTo('professional-contributions')">Contributions</span>
+    <span class="link" (click)="scrollTo('my-repositories')">Repositories</span>
+    <span class="link" (click)="scrollTo('studies')">Studies</span>
+    <span class="link" (click)="scrollTo('contact')">Contact</span>
+  </div>
+</mat-toolbar>
