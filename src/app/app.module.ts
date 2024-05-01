@@ -11,6 +11,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HeaderComponent } from './shared/body/header/header.component';
 import { FooterComponent } from './shared/body/footer/footer.component';
 import { ProfessionalContributionsComponent } from './components/professional-contributions/professional-contributions.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProfessionalContributionsComponent } from './components/professional-co
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
