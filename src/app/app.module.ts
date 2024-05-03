@@ -14,6 +14,7 @@ import { ProfessionalContributionsComponent } from './components/professional-co
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ThreeCanvasComponent } from './components/home/three-canvas/three-canvas.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
+    ThreeCanvasComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,36 @@
 .home {
-min-height: 100vh;
-background-color: antiquewhite;
-margin-top: 15vh;
-margin: 0;
-padding: 0;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 15vh;
 }
+
+.title {
+  position: absolute;
+  top:0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+  h1 {
+    color: #B7AA98;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 1vw 0 0 0;
+  }
+
+  h2 {
+    color:#B7AA98;
+    font-family: "AvantGarde";
+    font-size: 8.75rem;
+    font-weight: bolder;
+    margin: 0 0 -3vw 0;
+  }
+
+  .badass {
+    color: #FEC83D;
+  }
+}
+

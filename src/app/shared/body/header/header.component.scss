@@ -1,9 +1,11 @@
+
 .mat-toolbar {
   background-color: #212121;
   height: 15vh;
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 2;
 }
 
 img {
@@ -22,7 +24,7 @@ img {
   position: relative;
   margin: 0.5vw;
   cursor: pointer;
-  color: #FFF;
+  color: #B7AA98;
   font-weight: 400;
   padding: 1vh 2vh;
 }

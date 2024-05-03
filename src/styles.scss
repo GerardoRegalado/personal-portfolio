@@ -33,11 +33,22 @@ $portfolio-theme: mat.define-light-theme((
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
 @include mat.all-component-themes($portfolio-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+@font-face {
+  font-family: 'AvantGarde';
+  src: url('./assets/AVGARDD_2.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
