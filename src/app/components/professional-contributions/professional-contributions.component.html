@@ -1,1 +1,16 @@
-<p>professional-contributions works!</p>
+<section class="contributions">
+  <div class="contributions-container">
+    <div class="contributions-title">
+      <p>P R O F E S S I O N A L &nbsp;&nbsp; C O N T R I B U T I O N S</p>
+    </div>
+    <section class="contributions-card-container">
+     <div class="cont-card" *ngFor="let contribution of professional_contributions" (click)="openLink(contribution.link)" target="_blank">
+        <p class="yos">{{contribution.yearOfStart}}</p>
+        <div class="contribution-text-container">
+          <p>{{contribution.company}} &nbsp; <span>{{contribution.location}}</span></p>
+          <p class="position">{{contribution.position}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
