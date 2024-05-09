@@ -1,0 +1,126 @@
+
+.repositories {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-data-container {
+  width: 75vw;
+  height: auto;
+}
+
+.repositories-title {
+  width: 100%;
+  p {
+    color: #B7AA98;
+  }
+}
+
+.github-profile-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  margin-top: 15vh;
+  padding: 1vw;
+
+  h1 {
+    color: #B7AA98;
+    font-family: "AvantGarde";
+    animation: pulse 2s;
+  }
+}
+
+.img-profile {
+  width: 90%;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.profile-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.followers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+
+}
+
+.compl-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1vw;
+}
+
+p {
+  color: #B7AA98;
+}
+
+span {
+  color: rgba(183, 170, 152, 0.4);
+}
+
+h1:after {
+  content: '➔';
+  font-size: 1vw;
+  color: rgba(183, 170, 152, 0.4);
+  position: relative;
+  left: 1vw;
+  top: -1vh;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+
+a:hover h1:after {
+  opacity: 1;
+  margin-left: 0;
+
+}
+
+.graph {
+  margin-top: 1vw;
+}
+
+.repositories-container {
+  margin-top: 10vh;
+}
+
+.collection-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5vh;
+  p {
+    color: #B7AA98;
+  }
+}
+
+.repo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.load-more {
+  background-color: #212121;
+  border: 1px solid rgba(183, 170, 152, 0.4);
+  border-radius: 1vw;
+  color: rgba(183, 170, 152, 0.4);
+  padding: 1vh;
+}

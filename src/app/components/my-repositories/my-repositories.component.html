@@ -1,1 +1,50 @@
-<p>my-repositories works!</p>
+
+<section class="repositories">
+  <div class="github-data-container">
+    <div class="repositories-title">
+      <p>M Y &nbsp;&nbsp; R E P O S I T O R I E S</p>
+    </div>
+    <section class="github-profile-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <img class="img-profile" src={{githubUser.avatar_url}}>
+          </div>
+          <div class="col-7 profile-data">
+            <a href={{githubUser.html_url}} target="_blank">
+              <h1 class="user">{{githubUser!.login}}</h1>
+            </a>
+            <div class="followers">
+              <p>Followers:&nbsp; <span>{{githubUser.followers}}</span></p>
+              <p>Following:&nbsp; <span>{{githubUser.following}}</span></p>
+              <p>Repos:&nbsp; <span>&nbsp;{{githubUser.public_repos}}</span></p>
+              <p>Created At:&nbsp; <span>&nbsp;{{githubUser.created_at | date: 'dd-MM-yyyy'}}</span></p>
+            </div>
+          </div>
+          <div class="col-3 compl-data">
+            <div>
+              <img src="https://github-readme-stats.vercel.app/api/top-langs?username=GerardoRegalado&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=6&theme=bear&hide_border=true" height="120" alt="languages graph"  />
+            </div>
+          </div>
+        </div>
+        <div align="center" class="graph">
+          <img height="140" src="https://raw.githubusercontent.com/GerardoRegalado/GerardoRegalado/output/snake.svg" alt="Snake animation" />
+        </div>
+      </div>
+    </section>
+    <section class="repositories-container">
+      <div class="collection-title">
+        <p>C O L L E C T I O N</p>
+      </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-4 repo-card" *ngFor="let repo of firstRepos">
+              <port-repo-card [repo]="repo"></port-repo-card>
+            </div>
+            <button class="load-more" *ngIf="firstRepos.length < userRepos.length"(click)="loadMore()">Load {{userRepos.length - 6}} Repos</button>
+            <button class="load-more" *ngIf="firstRepos.length === userRepos.length"(click)="hideRepos()">Hide Repos</button>
+          </div>
+        </div>
+    </section>
+  </div>
+</section>

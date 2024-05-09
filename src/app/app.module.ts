@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {  HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,13 @@ import { ProfessionalContributionsComponent } from './components/professional-co
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+
+
 import { ThreeCanvasComponent } from './components/home/three-canvas/three-canvas.component';
+import { RepoCardComponent } from './shared/repo-card/repo-card.component';
 
 
 @NgModule({
@@ -29,11 +36,16 @@ import { ThreeCanvasComponent } from './components/home/three-canvas/three-canva
     HeaderComponent,
     FooterComponent,
     ThreeCanvasComponent,
+    RepoCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatTooltipModule,
+    ClipboardModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
