@@ -1,0 +1,49 @@
+<mat-card class="card-body">
+  <div class="tooltips">
+    <button
+      mat-raised-button
+      matTooltipPosition="left"
+      matTooltip="Fork Repo"
+      class="btn btn-dark"
+      (click)="copyLink(repo.git_url)"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FEC83D" class="bi bi-share-fill" viewBox="0 0 16 16">
+        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+      </svg>
+    </button>
+    <button
+      mat-raised-button
+      matTooltipPosition="left"
+      matTooltip="Clone Repo"
+      class="btn btn-dark"
+      (click)="copyLink(repo.clone_url)"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=#FEC83D class="bi bi-copy" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+    </svg>
+    </button>
+    <button
+      mat-raised-button
+      matTooltipPosition="left"
+      matTooltip="SSH Link"
+      class="btn btn-dark"
+      (click)="copyLink(repo.ssh_url)"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=#FEC83D class="bi bi-key-fill" viewBox="0 0 16 16">
+      <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+    </svg>
+    </button>
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{repo.name}}</mat-card-title>
+    <mat-card-subtitle>{{repo.language || "Not defined"}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Size: {{repo.size}}Mb</p>
+    <p>{{repo.visibility}}</p>
+    <p>Pushed At: {{repo.updated_at | date: "dd-MM-yyyy"}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button class="button" (click)="openLink(repo.html_url)">Visit Repo</button>
+  </mat-card-actions>
+</mat-card>

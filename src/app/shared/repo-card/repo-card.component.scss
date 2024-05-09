@@ -1,0 +1,56 @@
+.card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 23vw;
+  max-width: 23vw;
+  min-height: 25vh;
+  max-height: 50vh;
+  border: 1px solid  #B7AA98;
+  color: #B7AA98;
+  background-color: #212121;
+  border: 1px solid rgba(183, 170, 152, 0.4);
+  padding: 0.5vw;
+
+}
+
+mat-card-header {
+  margin-bottom: 2vh;
+}
+
+mat-card-subtitle {
+  color: #B7AA98;
+}
+
+mat-card-content{
+
+  p{
+    margin: 0;
+  }
+}
+
+.button {
+  font-family: "Roboto";
+  background-color: #212121;
+  color: #FEC83D;
+  border: 1px solid #FEC83D;
+  border-radius: 1vh;
+  width: 100%;
+}
+
+
+.btn {
+  background-color: #212121;
+  border: none;
+}
+
+.tooltips {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 85%;
+  margin-top: 5%;
+}
+
+
