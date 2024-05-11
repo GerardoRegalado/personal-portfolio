@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Contributions {
-  company: string;
-  position: string;
-  yearOfStart: number;
-  link: string;
-  location: string;
-  active: boolean;
-}
+import { ContributionsInterface } from '../../core/interfaces/contributions';
 
 @Component({
   selector: 'port-professional-contributions',
@@ -15,7 +7,7 @@ interface Contributions {
   styleUrl: './professional-contributions.component.scss'
 })
 export class ProfessionalContributionsComponent {
-public professional_contributions: Contributions[] = [
+public professional_contributions: ContributionsInterface[] = [
   {
     company: 'ASCENDYNAMICS',
     position: 'Frontend Developer',

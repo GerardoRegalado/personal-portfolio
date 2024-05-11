@@ -1,1 +1,16 @@
-<p>studies works!</p>
+<section class="studies">
+  <div class="studies-container">
+    <div class="studies-title">
+      <p>S T U D I E S</p>
+    </div>
+    <section class="studies-card-container">
+      <div class="cont-card" *ngFor="let study of studies" target="_blank">
+        <p class="yos">{{study.yearOfStart}} - {{study.yearOfEnd}}</p>
+        <div class="study-text-container">
+          <p>{{study.career}} &nbsp; <span>{{study.location}}</span></p>
+          <p class="position">{{study.school}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

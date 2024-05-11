@@ -1,0 +1,94 @@
+
+.studies{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
+}
+
+.studies-container {
+  width: 75vw;
+  height: auto;
+}
+
+.studies-title {
+  width: 100%;
+  p {
+    color: #B7AA98;
+  }
+}
+
+.studies-card-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5vw 0;
+}
+
+
+.study-text-container {
+  margin: 1vw 0 1vw 5vw;
+
+  span {
+    color: rgba(183, 170, 152, 0.2);
+  }
+
+  p:nth-child(1) {
+    color: #B7AA98;
+  }
+}
+
+.cont-card {
+  width: 100%;
+  min-height: 33%;
+  border: 1px solid #B7AA98 ;
+  color: #B7AA98;
+  border-radius: 1vh;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vw;
+
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+
+  p {
+    margin-left: 1vw;
+  }
+
+}
+
+.yos {
+  color: rgba(183, 170, 152, 0.3);
+}
+
+
+.cont-card:hover {
+  background-color: #FEC83D;
+  border: 1px solid #212121;
+  color: #212121;
+  cursor: pointer;
+}
+
+.cont-card:hover .yos, .cont-card:hover .position, .cont-card:hover p, .cont-card:hover span {
+  color: #212121;
+}
+
+.cont-card::after {
+  content: '➔';
+  color: #212121;
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cont-card:hover::after {
+  opacity: 1;
+}
