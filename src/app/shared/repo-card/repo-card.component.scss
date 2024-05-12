@@ -13,6 +13,10 @@
 
 }
 
+.card-body:hover{
+  animation: pulse 5s;
+}
+
 mat-card-header {
   margin-bottom: 2vh;
 }
@@ -35,6 +39,12 @@ mat-card-content{
   border: 1px solid #FEC83D;
   border-radius: 1vh;
   width: 100%;
+}
+
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(33,33,33, 0.45);
 }
 
 

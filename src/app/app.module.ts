@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import {  HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { MatFormField } from '@angular/material/form-field'
+import { MatLabel } from '@angular/material/form-field';
 
 
 import { ThreeCanvasComponent } from './components/home/three-canvas/three-canvas.component';
@@ -45,7 +48,11 @@ import { RepoCardComponent } from './shared/repo-card/repo-card.component';
     MatCardModule,
     MatTooltipModule,
     ClipboardModule,
-    HttpClientModule
+    MatFormField,
+    MatLabel,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),

@@ -1,0 +1,164 @@
+
+.contact {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  width: 100%;
+  height: auto;
+}
+
+.contact-title {
+  margin-left: 13vw;
+  p {
+    color: #B7AA98;
+  }
+}
+
+.contact-form-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  margin: 5vw 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  video {
+    width: 100%;
+    height: 100%;
+
+  }
+
+}
+
+.video-container::after {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: #212121;
+  background: linear-gradient(270deg, #212121, transparent);
+}
+
+.contact-form {
+  width: 100%;
+  height: auto;
+
+}
+
+.form-title{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p{
+      color: #B7AA98;
+    }
+}
+
+.form {
+  height: 100%;
+}
+
+.custom-input {
+	display: flex;
+  flex-direction: column;
+	max-width: 100%;
+  margin-bottom: 5vh;
+
+}
+
+.custom-row-input {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5vh;
+  gap: 1vw;
+}
+
+.input {
+	font-size: 14px;
+	padding: 10px 25px;
+	width: 100%;
+	outline: none;
+	background: #212121;
+	color: #B7AA98;
+	border: 1px solid #B7AA98;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 0px #222222;
+	transition: .3s ease;
+  z-index: 1;
+}
+
+.input:focus {
+	background: #212121;
+  color: #B7AA98;
+	border: 1px solid #B7AA98;
+	border-radius: 15px;
+}
+
+.input::placeholder,
+.input-country-code::placeholder {
+	color: rgba(183, 170, 152, 0.4);
+  font-style: italic;
+}
+
+.input-country-code {
+	font-size: 14px;
+	padding: 10px 25px;
+	width: 25%;
+	outline: none;
+	background: #212121;
+	color: #B7AA98;
+	border: 1px solid #B7AA98;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 0px #222222;
+	transition: .3s ease;
+  z-index: 1;
+}
+
+label {
+	color: rgba(183, 170, 152, 0.4);
+	font-size: 14px;
+  font-style: italic;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+}
+
+.submit{
+  background-color: #FEC83D;
+  width: 100%;
+  border-radius: 1vw;
+  border: none;
+  color: #212121;
+  padding: 2vh 0;
+}
+
+.submit:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(33,33,33, 0.45);
+}

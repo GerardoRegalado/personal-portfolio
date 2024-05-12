@@ -124,3 +124,9 @@ a:hover h1:after {
   color: rgba(183, 170, 152, 0.4);
   padding: 1vh;
 }
+
+
+.load-more:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(33,33,33, 0.45);
+}

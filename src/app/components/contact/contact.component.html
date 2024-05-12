@@ -1,1 +1,48 @@
-<p>contact works!</p>
+<section class="contact">
+  <div class="contact-container">
+    <div class="contact-title">
+      <p>C O N T A C T</p>
+    </div>
+    <section class="contact-form-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+              <div class="video-container">
+                <video autoplay muted loop>
+                  <source src="assets/planetvideo.mp4" type="video/mp4">
+                </video>
+              </div>
+          </div>
+          <div class="col-4">
+            <div class="contact-form">
+              <div class="form-title">
+                <p>L E T ' S &nbsp;&nbsp; C O N N E C T </p>
+              </div>
+              <div class="form">
+                <form class="example-form" [formGroup]="contactform" (ngSubmit)="onSubmit()">
+                  <div class="custom-input">
+                    <input class="input" type="text" id="name" name="name" placeholder="Full name" formControlName="name">
+                  </div>
+                  <div class="custom-input">
+                    <input class="input" type="text" id="email" name="email" placeholder="Write your email here" formControlName="email">
+                  </div>
+                  <div class="custom-row-input">
+                    <input class="input-country-code" type="text" id="country-code" name="country-code" placeholder="+52" formControlName="country_code">
+                    <input class="input" type="text" id="country-code" name="phone" placeholder="Phone Number" formControlName="phone" >
+                  </div>
+                  <div class="custom-input">
+                    <label for="message">Write your message here</label>
+                    <textarea class="input text-area"  type="text-area" id="message" name="message" cols="10" rows="4" minlength="10" maxlength="500" spellcheck required formControlName="message"></textarea>
+                  </div>
+                  <div class="button-container">
+                    <button class="submit" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
