@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { StudiesInterface } from '../../core/interfaces/contributions';
 
 @Component({
-  selector: 'port-studies',
-  templateUrl: './studies.component.html',
-  styleUrl: './studies.component.scss'
+    selector: 'port-studies',
+    templateUrl: './studies.component.html',
+    styleUrl: './studies.component.scss',
+    standalone: false
 })
 export class StudiesComponent {
 

@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'port-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'port-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    standalone: false
 })
 export class HeaderComponent {
   constructor(private viewPortScroller: ViewportScroller){}

@@ -1,27 +1,26 @@
 # Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+Static-only Angular 20 portfolio (no SSR runtime).
 
-## Development server
+## Local development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Use Node `20.19+` and run:
 
-## Code scaffolding
+```bash
+npm install
+npm run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Production build
 
-## Build
+```bash
+npm run build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The static artifacts are generated in:
 
-## Running unit tests
+`dist/portfolio/browser`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Deployment
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+See [DEPLOY.md](./DEPLOY.md) for DNS records, custom domain setup, HTTPS checks, and go-live checklist.

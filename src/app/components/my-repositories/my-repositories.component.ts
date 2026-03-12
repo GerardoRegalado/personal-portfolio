@@ -6,9 +6,10 @@ import { GithubReposInterface } from '../../core/interfaces/repos.interface';
 
 
 @Component({
-  selector: 'port-my-repositories',
-  templateUrl: './my-repositories.component.html',
-  styleUrl: './my-repositories.component.scss'
+    selector: 'port-my-repositories',
+    templateUrl: './my-repositories.component.html',
+    styleUrl: './my-repositories.component.scss',
+    standalone: false
 })
 export class MyRepositoriesComponent implements OnInit {
   public githubUser: GithubProfileInterface | null = null;

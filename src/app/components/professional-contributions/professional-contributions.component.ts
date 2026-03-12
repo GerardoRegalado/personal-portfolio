@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ContributionsInterface } from '../../core/interfaces/contributions';
 
 @Component({
-  selector: 'port-professional-contributions',
-  templateUrl: './professional-contributions.component.html',
-  styleUrl: './professional-contributions.component.scss'
+    selector: 'port-professional-contributions',
+    templateUrl: './professional-contributions.component.html',
+    styleUrl: './professional-contributions.component.scss',
+    standalone: false
 })
 export class ProfessionalContributionsComponent {
 public professional_contributions: ContributionsInterface[] = [

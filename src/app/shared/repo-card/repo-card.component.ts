@@ -4,9 +4,10 @@ import {Clipboard} from '@angular/cdk/clipboard';
 import { GithubReposInterface } from '../../core/interfaces/repos.interface';
 
 @Component({
-  selector: 'port-repo-card',
-  templateUrl: './repo-card.component.html',
-  styleUrl: './repo-card.component.scss'
+    selector: 'port-repo-card',
+    templateUrl: './repo-card.component.html',
+    styleUrl: './repo-card.component.scss',
+    standalone: false
 })
 export class RepoCardComponent {
   @Input() repo!: GithubReposInterface
