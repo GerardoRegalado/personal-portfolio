@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { GithubProfileInterface } from '../interfaces/github.interface';
+import { GithubReposInterface } from '../interfaces/repos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +12,11 @@ export class GithubService {
 
   constructor(private http: HttpClient) {}
 
-  public getUser() {
-    return this.http.get(this.URL);
+  public getUser(): Observable<GithubProfileInterface> {
+    return this.http.get<GithubProfileInterface>(this.URL);
   }
 
-  public getRepos(repos_url: string) {
-    return this.http.get(repos_url);
+  public getRepos(repos_url: string): Observable<GithubReposInterface[]> {
+    return this.http.get<GithubReposInterface[]>(repos_url);
   }
 }

@@ -1,4 +1,5 @@
 .card-body {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 23vw;
@@ -17,15 +18,21 @@
   animation: pulse 5s;
 }
 
-mat-card-header {
+.card-header {
   margin-bottom: 2vh;
 }
 
-mat-card-subtitle {
-  color: #B7AA98;
+.card-title {
+  margin: 0;
+  font-size: 1.05rem;
 }
 
-mat-card-content{
+.card-subtitle {
+  color: #B7AA98;
+  margin: 0.35rem 0 0;
+}
+
+.card-content {
 
   p{
     margin: 0;
@@ -39,6 +46,10 @@ mat-card-content{
   border: 1px solid #FEC83D;
   border-radius: 1vh;
   width: 100%;
+}
+
+.card-actions {
+  margin-top: auto;
 }
 
 
@@ -62,5 +73,4 @@ mat-card-content{
   margin-left: 85%;
   margin-top: 5%;
 }
-
 

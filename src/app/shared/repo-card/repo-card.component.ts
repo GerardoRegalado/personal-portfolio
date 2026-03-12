@@ -13,8 +13,15 @@ export class RepoCardComponent {
 
   constructor(private clipboard:Clipboard){}
 
-  public openLink(link: string) {
-    window.open(link, '_blank')
+  public openLink(link: string): void {
+    if (typeof window === 'undefined' || !link) {
+      return;
+    }
+
+    const newTab = window.open(link, '_blank', 'noopener,noreferrer');
+    if (newTab) {
+      newTab.opener = null;
+    }
   }
 
   public copyLink(link:string){

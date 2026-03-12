@@ -14,14 +14,41 @@ export function app(): express.Express {
 
   const commonEngine = new CommonEngine();
 
+  server.enable('trust proxy');
+  server.disable('x-powered-by');
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
+
+  server.use((req, res, next) => {
+    const forwardedProto = req.headers['x-forwarded-proto'];
+    const usesHttpsForwardHeader =
+      typeof forwardedProto === 'string'
+        ? forwardedProto.includes('https')
+        : Array.isArray(forwardedProto) && forwardedProto.some((value) => value.includes('https'));
+    const isSecure = req.secure || usesHttpsForwardHeader;
+
+    if (process.env['NODE_ENV'] === 'production' && !isSecure) {
+      return res.redirect(308, `https://${req.headers.host}${req.originalUrl}`);
+    }
+
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+
+    if (isSecure) {
+      res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    }
+
+    next();
+  });
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(browserDistFolder, {
-    maxAge: '1y'
+    maxAge: '1y',
+    immutable: true
   }));
 
   // All regular routes use the Angular engine

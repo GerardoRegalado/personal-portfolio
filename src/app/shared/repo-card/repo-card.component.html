@@ -1,9 +1,8 @@
-<mat-card class="card-body">
+<article class="card-body">
   <div class="tooltips">
     <button
-      mat-raised-button
-      matTooltipPosition="left"
-      matTooltip="Fork Repo"
+      type="button"
+      title="Fork Repo"
       class="btn btn-dark"
       (click)="copyLink(repo.git_url)"
     >
@@ -12,9 +11,8 @@
       </svg>
     </button>
     <button
-      mat-raised-button
-      matTooltipPosition="left"
-      matTooltip="Clone Repo"
+      type="button"
+      title="Clone Repo"
       class="btn btn-dark"
       (click)="copyLink(repo.clone_url)"
     >
@@ -23,9 +21,8 @@
     </svg>
     </button>
     <button
-      mat-raised-button
-      matTooltipPosition="left"
-      matTooltip="SSH Link"
+      type="button"
+      title="SSH Link"
       class="btn btn-dark"
       (click)="copyLink(repo.ssh_url)"
     >
@@ -34,16 +31,16 @@
     </svg>
     </button>
   </div>
-  <mat-card-header>
-    <mat-card-title>{{repo.name}}</mat-card-title>
-    <mat-card-subtitle>{{repo.language || "Not defined"}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
+  <div class="card-header">
+    <h3 class="card-title">{{repo.name}}</h3>
+    <p class="card-subtitle">{{repo.language || "Not defined"}}</p>
+  </div>
+  <div class="card-content">
     <p>Size: {{repo.size}}Mb</p>
     <p>{{repo.visibility}}</p>
     <p>Pushed At: {{repo.updated_at | date: "dd-MM-yyyy"}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button class="button" (click)="openLink(repo.html_url)">Visit Repo</button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+  <div class="card-actions">
+    <button type="button" class="button" (click)="openLink(repo.html_url)">Visit Repo</button>
+  </div>
+</article>

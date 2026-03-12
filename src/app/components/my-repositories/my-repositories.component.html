@@ -4,21 +4,21 @@
     <div class="repositories-title">
       <p>M Y &nbsp;&nbsp; R E P O S I T O R I E S</p>
     </div>
-    <section class="github-profile-container">
+    <section class="github-profile-container" *ngIf="githubUser as user">
       <div class="container">
         <div class="row">
           <div class="col-2">
-            <img class="img-profile" src={{githubUser.avatar_url}}>
+            <img class="img-profile" [src]="user.avatar_url" [alt]="user.login">
           </div>
           <div class="col-7 profile-data">
-            <a href={{githubUser.html_url}} target="_blank">
-              <h1 class="user">{{githubUser!.login}}</h1>
+            <a [href]="user.html_url" target="_blank" rel="noopener noreferrer">
+              <h1 class="user">{{user.login}}</h1>
             </a>
             <div class="followers">
-              <p>Followers:&nbsp; <span>{{githubUser.followers}}</span></p>
-              <p>Following:&nbsp; <span>{{githubUser.following}}</span></p>
-              <p>Repos:&nbsp; <span>&nbsp;{{githubUser.public_repos}}</span></p>
-              <p>Created At:&nbsp; <span>&nbsp;{{githubUser.created_at | date: 'dd-MM-yyyy'}}</span></p>
+              <p>Followers:&nbsp; <span>{{user.followers}}</span></p>
+              <p>Following:&nbsp; <span>{{user.following}}</span></p>
+              <p>Repos:&nbsp; <span>&nbsp;{{user.public_repos}}</span></p>
+              <p>Created At:&nbsp; <span>&nbsp;{{user.created_at | date: 'dd-MM-yyyy'}}</span></p>
             </div>
           </div>
           <div class="col-3 compl-data">
@@ -41,8 +41,8 @@
             <div class="col-4 repo-card" *ngFor="let repo of firstRepos">
               <port-repo-card [repo]="repo"></port-repo-card>
             </div>
-            <button class="load-more" *ngIf="firstRepos.length < userRepos.length"(click)="loadMore()">Load {{userRepos.length - 6}} Repos</button>
-            <button class="load-more" *ngIf="firstRepos.length === userRepos.length"(click)="hideRepos()">Hide Repos</button>
+            <button class="load-more" *ngIf="firstRepos.length < userRepos.length" (click)="loadMore()">Load {{userRepos.length - 6}} Repos</button>
+            <button class="load-more" *ngIf="firstRepos.length === userRepos.length" (click)="hideRepos()">Hide Repos</button>
           </div>
         </div>
     </section>

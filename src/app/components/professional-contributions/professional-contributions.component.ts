@@ -10,11 +10,27 @@ export class ProfessionalContributionsComponent {
 public professional_contributions: ContributionsInterface[] = [
   {
     company: 'ASCENDYNAMICS',
-    position: 'Frontend Developer',
+    position: 'Fullstack Developer Junior',
     yearOfStart: 2024,
     link: 'https://ascendynamics.org',
     location: 'Chicago, US',
     active: true
+  },
+  {
+    company: 'Occupop Onboarding',
+    position: 'Frontend Developer',
+    yearOfStart: 2024,
+    link: 'https://onboarding.occupop.com/signin/',
+    location: 'Dublin, Ireland',
+    active: true
+  },
+  {
+    company: 'Open Forge - Startup Wars',
+    position: 'Frontend Developer Junior',
+    yearOfStart: 2022,
+    link: 'https://portal.startupwars.com/',
+    location: 'Philadelphia, US',
+    active: false
   },
   {
     company: 'OneCarNow',
@@ -34,7 +50,14 @@ public professional_contributions: ContributionsInterface[] = [
   },
 ]
 
-public openLink(link: string) {
-  window.open(link, '_blank')
+public openLink(link: string): void {
+  if (typeof window === 'undefined' || !link) {
+    return;
+  }
+
+  const newTab = window.open(link, '_blank', 'noopener,noreferrer');
+  if (newTab) {
+    newTab.opener = null;
+  }
 }
 }
