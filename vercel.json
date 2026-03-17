@@ -45,19 +45,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.gerardoregalado.dev"
-        }
-      ],
-      "destination": "https://gerardoregalado.dev/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",
