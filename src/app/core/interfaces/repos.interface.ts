@@ -81,3 +81,22 @@ export interface GithubReposInterface {
   watchers_count: number;
   web_commit_signoff_required: boolean;
 }
+
+export type GithubRepositorySummary = Pick<
+  GithubReposInterface,
+  | 'archived'
+  | 'clone_url'
+  | 'description'
+  | 'fork'
+  | 'forks_count'
+  | 'git_url'
+  | 'homepage'
+  | 'html_url'
+  | 'language'
+  | 'name'
+  | 'size'
+  | 'ssh_url'
+  | 'stargazers_count'
+  | 'updated_at'
+  | 'visibility'
+>;

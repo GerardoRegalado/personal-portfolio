@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NO_ERRORS_SCHEMA, PLATFORM_ID } from '@angular/core';
-import { of } from 'rxjs';
+import { throwError, of } from 'rxjs';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyRepositoriesComponent } from './my-repositories.component';
@@ -16,6 +16,11 @@ describe('MyRepositoriesComponent', () => {
   };
 
   beforeEach(async () => {
+    githubServiceMock.getUser.calls.reset();
+    githubServiceMock.getRepos.calls.reset();
+    githubServiceMock.getUser.and.returnValue(of({ repos_url: '' }));
+    githubServiceMock.getRepos.and.returnValue(of([]));
+
     await TestBed.configureTestingModule({
       declarations: [MyRepositoriesComponent],
       imports: [CommonModule],
@@ -47,5 +52,26 @@ describe('MyRepositoriesComponent', () => {
 
     component.hideRepos();
     expect(component.firstRepos.length).toBe(6);
+  });
+
+  it('should keep cached status when github request fails after data exists', () => {
+    component.githubUser = {
+      avatar_url: 'https://example.com/avatar.png',
+      created_at: '2026-03-12T00:00:00Z',
+      followers: 10,
+      following: 2,
+      html_url: 'https://github.com/example',
+      login: 'example',
+      name: 'Example',
+      public_repos: 8,
+      repos_url: 'https://api.github.com/users/example/repos'
+    };
+    component.userRepos = [{}] as any[];
+    component.firstRepos = [{}] as any[];
+    githubServiceMock.getUser.and.returnValue(throwError(() => new Error('rate limit')));
+
+    component.getGithubUser();
+
+    expect(component.githubStatus).toBe('cached');
   });
 });

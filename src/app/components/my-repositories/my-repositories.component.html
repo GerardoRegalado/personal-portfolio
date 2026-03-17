@@ -1,50 +1,89 @@
-
 <section class="repositories">
   <div class="github-data-container">
     <div class="repositories-title">
       <p>M Y &nbsp;&nbsp; R E P O S I T O R I E S</p>
     </div>
-    <section class="github-profile-container" *ngIf="githubUser as user">
-      <div class="container">
-        <div class="row">
-          <div class="col-2">
-            <img class="img-profile" [src]="user.avatar_url" [alt]="user.login">
+
+    <section class="github-profile-container">
+      <div
+        class="github-status"
+        [class.github-status-warning]="githubStatus !== 'ready'"
+        [class.github-status-error]="githubStatus === 'error'"
+      >
+        <p>{{ githubMessage }}</p>
+        <button type="button" class="profile-link" (click)="openLink(githubProfileUrl)">Visit GitHub</button>
+      </div>
+
+      <div class="github-profile-card" *ngIf="githubUser as user; else githubUnavailable">
+        <div class="profile-shell">
+          <div class="profile-summary">
+            <img class="img-profile" [src]="user.avatar_url" [alt]="user.login" loading="lazy">
           </div>
-          <div class="col-7 profile-data">
-            <a [href]="user.html_url" target="_blank" rel="noopener noreferrer">
+
+          <div class="profile-data">
+            <button type="button" class="profile-heading" (click)="openLink(user.html_url)">
               <h1 class="user">{{user.login}}</h1>
-            </a>
+            </button>
             <div class="followers">
-              <p>Followers:&nbsp; <span>{{user.followers}}</span></p>
-              <p>Following:&nbsp; <span>{{user.following}}</span></p>
-              <p>Repos:&nbsp; <span>&nbsp;{{user.public_repos}}</span></p>
-              <p>Created At:&nbsp; <span>&nbsp;{{user.created_at | date: 'dd-MM-yyyy'}}</span></p>
+              <p>Followers <span>{{user.followers}}</span></p>
+              <p>Following <span>{{user.following}}</span></p>
+              <p>Public repos <span>{{user.public_repos}}</span></p>
+              <p>Since <span>{{user.created_at | date: 'dd-MM-yyyy'}}</span></p>
             </div>
           </div>
-          <div class="col-3 compl-data">
-            <div>
-              <img src="https://github-readme-stats.vercel.app/api/top-langs?username=GerardoRegalado&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=6&theme=bear&hide_border=true" height="120" alt="languages graph"  />
-            </div>
+
+          <div class="compl-data" *ngIf="githubStatus !== 'error'">
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs?username=GerardoRegalado&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=6&theme=bear&hide_border=true"
+              height="120"
+              alt="GitHub languages graph"
+              loading="lazy"
+            />
           </div>
         </div>
-        <div align="center" class="graph">
-          <img height="140" src="https://raw.githubusercontent.com/GerardoRegalado/GerardoRegalado/output/snake.svg" alt="Snake animation" />
+
+        <div class="graph" *ngIf="githubStatus !== 'error'">
+          <img
+            height="140"
+            src="https://raw.githubusercontent.com/GerardoRegalado/GerardoRegalado/output/snake.svg"
+            alt="Snake animation"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
+
+    <ng-template #githubUnavailable>
+      <div class="github-empty-state">
+        <p>GitHub data could not be loaded right now, but your profile is still available.</p>
+      </div>
+    </ng-template>
+
     <section class="repositories-container">
       <div class="collection-title">
         <p>C O L L E C T I O N</p>
       </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-4 repo-card" *ngFor="let repo of firstRepos">
-              <port-repo-card [repo]="repo"></port-repo-card>
-            </div>
-            <button class="load-more" *ngIf="firstRepos.length < userRepos.length" (click)="loadMore()">Load {{userRepos.length - 6}} Repos</button>
-            <button class="load-more" *ngIf="firstRepos.length === userRepos.length" (click)="hideRepos()">Hide Repos</button>
-          </div>
+
+      <div class="repositories-grid" *ngIf="firstRepos.length; else repositoriesUnavailable">
+        <div class="repo-card" *ngFor="let repo of firstRepos; trackBy: trackByRepoName">
+          <port-repo-card [repo]="repo"></port-repo-card>
         </div>
+      </div>
+
+      <div class="repositories-actions" *ngIf="userRepos.length > repoPreviewCount">
+        <button class="load-more" *ngIf="firstRepos.length < userRepos.length" (click)="loadMore()">
+          Load {{userRepos.length - repoPreviewCount}} More Repos
+        </button>
+        <button class="load-more" *ngIf="firstRepos.length === userRepos.length" (click)="hideRepos()">
+          Show Less
+        </button>
+      </div>
+
+      <ng-template #repositoriesUnavailable>
+        <div class="github-empty-state">
+          <p>The repository cards will reappear as soon as GitHub responds again.</p>
+        </div>
+      </ng-template>
     </section>
   </div>
 </section>

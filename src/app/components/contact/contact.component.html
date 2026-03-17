@@ -4,41 +4,54 @@
       <p>C O N T A C T</p>
     </div>
     <section class="contact-form-container">
-      <div class="container">
-        <div class="row">
-          <div class="col-8">
-              <div class="motion-panel" aria-hidden="true">
-                <div class="orb orb-one"></div>
-                <div class="orb orb-two"></div>
-                <div class="orb orb-three"></div>
-              </div>
+      <div class="contact-layout">
+        <div class="contact-visual">
+          <div class="motion-panel" aria-hidden="true">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <div class="orb orb-three"></div>
           </div>
-          <div class="col-4">
-            <div class="contact-form">
-              <div class="form-title">
-                <p>L E T ' S &nbsp;&nbsp; C O N N E C T </p>
-              </div>
-              <div class="form">
-                <form class="example-form" [formGroup]="contactform" (ngSubmit)="onSubmit()">
-                  <div class="custom-input">
-                    <input class="input" type="text" id="name" name="name" placeholder="Full name" formControlName="name">
-                  </div>
-                  <div class="custom-input">
-                    <input class="input" type="text" id="email" name="email" placeholder="Write your email here" formControlName="email">
-                  </div>
-                  <div class="custom-row-input">
+        </div>
+
+        <div class="contact-panel">
+          <div class="contact-form">
+            <div class="form-title">
+              <p>L E T ' S &nbsp;&nbsp; C O N N E C T </p>
+            </div>
+            <div class="form">
+              <form class="example-form" [formGroup]="contactform" (ngSubmit)="onSubmit()" novalidate>
+                <div class="custom-input">
+                  <input class="input" type="text" id="name" name="name" placeholder="Full name" formControlName="name">
+                  <small class="field-error" *ngIf="hasError('name')">Please share your name.</small>
+                </div>
+                <div class="custom-input">
+                  <input class="input" type="email" id="email" name="email" placeholder="Write your email here" formControlName="email">
+                  <small class="field-error" *ngIf="hasError('email')">Enter a valid email address.</small>
+                </div>
+                <div class="custom-row-input">
+                  <div class="input-wrapper country-code-wrapper">
                     <input class="input-country-code" type="text" id="country-code" name="country-code" placeholder="+52" formControlName="country_code">
-                    <input class="input" type="text" id="country-code" name="phone" placeholder="Phone Number" formControlName="phone" >
+                    <small class="field-error" *ngIf="hasError('country_code')">Use a country code like +52.</small>
                   </div>
-                  <div class="custom-input">
-                    <label for="message">Write your message here</label>
-                    <textarea class="input text-area"  type="text-area" id="message" name="message" cols="10" rows="4" minlength="10" maxlength="500" spellcheck required formControlName="message"></textarea>
+                  <div class="input-wrapper">
+                    <input class="input" type="tel" id="phone" name="phone" placeholder="Phone Number" formControlName="phone">
+                    <small class="field-error" *ngIf="hasError('phone')">Enter a valid phone number.</small>
                   </div>
-                  <div class="button-container">
-                    <button class="submit" type="submit">Submit</button>
+                </div>
+                <div class="custom-input">
+                  <label for="message">Write your message here</label>
+                  <textarea class="input text-area" id="message" name="message" cols="10" rows="4" minlength="10" maxlength="500" spellcheck required formControlName="message"></textarea>
+                  <div class="message-footer">
+                    <small class="field-error" *ngIf="hasError('message')">Please write at least 10 characters.</small>
+                    <small class="char-counter">{{ remainingCharacters }} characters left</small>
                   </div>
-                </form>
-              </div>
+                </div>
+                <div class="button-container">
+                  <button class="submit" type="submit" [disabled]="contactform.invalid">Open Email Draft</button>
+                </div>
+                <p class="form-note">This opens your email app with the message already prepared.</p>
+                <p class="submit-message" *ngIf="submitState === 'success'">Your email draft is ready to send.</p>
+              </form>
             </div>
           </div>
         </div>

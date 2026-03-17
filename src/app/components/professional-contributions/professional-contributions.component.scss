@@ -2,15 +2,14 @@
 .contributions {
   width: 100%;
   min-height: 100vh;
-  padding: 6vh 0;
+  padding: 5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .contributions-container {
-  width: 75vw;
-  height: auto;
+  width: var(--content-width);
 }
 
 .contributions-title {
@@ -25,11 +24,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3vw 0;
+  gap: 1rem;
+  margin: 2rem 0 0;
 }
 
 .contribution-text-container {
-  margin: 1vw 0 1vw 5vw;
+  margin: 0;
 
   span {
     color: rgba(183, 170, 152, 0.2);
@@ -42,22 +42,21 @@
 
 .cont-card {
   width: 100%;
-  min-height: 33%;
-  border: 1px solid #B7AA98 ;
+  min-height: 8rem;
+  border: 1px solid #B7AA98;
   color: #B7AA98;
-  border-radius: 1vh;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
-  margin-bottom: 2vw;
-
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s, color 0.3s;
 
   p {
-    margin-left: 1vw;
+    margin: 0;
   }
-
 }
 
 .yos {
@@ -80,7 +79,7 @@
   content: '➔';
   color: #212121;
   position: absolute;
-  right: 5vw;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -89,4 +88,17 @@
 
 .cont-card:hover::after {
   opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .contributions {
+    min-height: auto;
+    padding: 4rem 0 3rem;
+  }
+
+  .cont-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 3.5rem;
+  }
 }

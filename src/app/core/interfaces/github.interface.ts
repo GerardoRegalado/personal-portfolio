@@ -32,3 +32,16 @@ export interface GithubProfileInterface {
   updated_at: string
   url: string
 }
+
+export type GithubProfileSummary = Pick<
+  GithubProfileInterface,
+  | 'avatar_url'
+  | 'created_at'
+  | 'followers'
+  | 'following'
+  | 'html_url'
+  | 'login'
+  | 'name'
+  | 'public_repos'
+  | 'repos_url'
+>;

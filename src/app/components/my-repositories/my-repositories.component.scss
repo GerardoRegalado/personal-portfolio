@@ -1,19 +1,19 @@
-
 .repositories {
   width: 100%;
-  height: auto;
+  min-height: 100vh;
+  padding: 5rem 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .github-data-container {
-  width: 75vw;
-  height: auto;
+  width: var(--content-width);
 }
 
 .repositories-title {
   width: 100%;
+
   p {
     color: #B7AA98;
   }
@@ -21,49 +21,91 @@
 
 .github-profile-container {
   width: 100%;
-  height: auto;
   display: flex;
-  justify-content: left;
-  margin-top: 15vh;
-  padding: 1vw;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-  h1 {
-    color: #B7AA98;
-    font-family: "AvantGarde";
-    animation: pulse 2s;
+.github-status,
+.github-empty-state,
+.github-profile-card {
+  background: rgba(24, 24, 24, 0.84);
+  border: 1px solid rgba(183, 170, 152, 0.16);
+  border-radius: 1.25rem;
+}
+
+.github-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+
+  p {
+    margin: 0;
   }
 }
 
+.github-status-warning {
+  border-color: rgba(254, 200, 61, 0.24);
+}
+
+.github-status-error {
+  border-color: rgba(255, 120, 120, 0.35);
+}
+
+.github-profile-card {
+  padding: 1.25rem;
+}
+
+.profile-shell {
+  display: grid;
+  grid-template-columns: minmax(7rem, 9rem) 1fr minmax(13rem, 16rem);
+  gap: 1.25rem;
+  align-items: center;
+}
+
 .img-profile {
-  width: 90%;
+  width: 100%;
   clip-path: circle(50% at 50% 50%);
+  border: 1px solid rgba(254, 200, 61, 0.16);
 }
 
 .profile-data {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+  gap: 0.75rem;
+}
 
-  a{
-    text-decoration: none;
-  }
+.profile-heading {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-heading h1 {
+  color: #B7AA98;
+  font-family: "AvantGarde";
+  animation: pulse 2s;
+  margin: 0;
 }
 
 .followers {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1vw;
-
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem 1rem;
 }
 
 .compl-data {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1vw;
+  padding: 0.5rem;
 }
 
 p {
@@ -76,57 +118,103 @@ span {
 
 h1:after {
   content: '➔';
-  font-size: 1vw;
+  font-size: 0.9rem;
   color: rgba(183, 170, 152, 0.4);
   position: relative;
-  left: 1vw;
-  top: -1vh;
+  left: 0.7rem;
+  top: -0.3rem;
   opacity: 0;
   transition: all .2s ease-in-out;
 }
 
-a:hover h1:after {
+.profile-heading:hover h1:after,
+.profile-heading:focus-visible h1:after {
   opacity: 1;
   margin-left: 0;
-
 }
 
 .graph {
-  margin-top: 1vw;
+  margin-top: 1rem;
 }
 
 .repositories-container {
-  margin-top: 10vh;
+  margin-top: 3rem;
 }
 
 .collection-title {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5vh;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+
   p {
     color: #B7AA98;
   }
 }
 
+.repositories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+
 .repo-card {
+  min-width: 0;
+}
+
+.repositories-actions {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 5vh;
+  margin-top: 1.5rem;
 }
 
 .load-more {
   background-color: #212121;
   border: 1px solid rgba(183, 170, 152, 0.4);
-  border-radius: 1vw;
-  color: rgba(183, 170, 152, 0.4);
-  padding: 1vh;
+  border-radius: 999px;
+  color: #B7AA98;
+  padding: 0.8rem 1.25rem;
+  cursor: pointer;
 }
-
 
 .load-more:active {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(33,33,33, 0.45);
+}
+
+.profile-link {
+  border: 1px solid rgba(254, 200, 61, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  color: #fec83d;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.github-empty-state {
+  padding: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .profile-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .followers {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .repositories {
+    min-height: auto;
+    padding: 4rem 0 3rem;
+  }
+
+  .github-status {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

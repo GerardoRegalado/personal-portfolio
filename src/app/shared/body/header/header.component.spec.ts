@@ -30,4 +30,14 @@ describe('HeaderComponent', () => {
 
     expect(viewportScrollerSpy.scrollToAnchor).toHaveBeenCalledWith('contact');
   });
+
+  it('should toggle mobile menu', () => {
+    expect(component.isMenuOpen).toBeFalse();
+
+    component.toggleMenu();
+    expect(component.isMenuOpen).toBeTrue();
+
+    component.scrollTo('home');
+    expect(component.isMenuOpen).toBeFalse();
+  });
 });

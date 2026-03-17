@@ -1,10 +1,24 @@
 <header class="site-toolbar">
-  <div class="navbar">
-    <span class="link" (click)="scrollTo('home')">Home</span>
-    <span class="link" (click)="scrollTo('about-me')">About Me</span>
-    <span class="link" (click)="scrollTo('professional-contributions')">Contributions</span>
-    <span class="link" (click)="scrollTo('my-repositories')">Repositories</span>
-    <span class="link" (click)="scrollTo('studies')">Studies</span>
-    <span class="link" (click)="scrollTo('contact')">Contact</span>
-  </div>
+  <button
+    type="button"
+    class="menu-toggle"
+    [class.is-open]="isMenuOpen"
+    [attr.aria-expanded]="isMenuOpen"
+    aria-controls="site-navigation"
+    aria-label="Toggle navigation menu"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="site-navigation" class="navbar" [class.is-open]="isMenuOpen" aria-label="Primary navigation">
+    <button type="button" class="link" [class.is-active]="activeSection === 'home'" (click)="scrollTo('home')">Home</button>
+    <button type="button" class="link" [class.is-active]="activeSection === 'about-me'" (click)="scrollTo('about-me')">About Me</button>
+    <button type="button" class="link" [class.is-active]="activeSection === 'professional-contributions'" (click)="scrollTo('professional-contributions')">Contributions</button>
+    <button type="button" class="link" [class.is-active]="activeSection === 'my-repositories'" (click)="scrollTo('my-repositories')">Repositories</button>
+    <button type="button" class="link" [class.is-active]="activeSection === 'studies'" (click)="scrollTo('studies')">Studies</button>
+    <button type="button" class="link" [class.is-active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact</button>
+  </nav>
 </header>

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import {Clipboard} from '@angular/cdk/clipboard';
+import { Clipboard } from '@angular/cdk/clipboard';
 
-import { GithubReposInterface } from '../../core/interfaces/repos.interface';
+import { GithubRepositorySummary } from '../../core/interfaces/repos.interface';
 
 @Component({
     selector: 'port-repo-card',
@@ -10,9 +10,9 @@ import { GithubReposInterface } from '../../core/interfaces/repos.interface';
     standalone: false
 })
 export class RepoCardComponent {
-  @Input() repo!: GithubReposInterface
+  @Input() repo!: GithubRepositorySummary;
 
-  constructor(private clipboard:Clipboard){}
+  constructor(private clipboard: Clipboard) {}
 
   public openLink(link: string): void {
     if (typeof window === 'undefined' || !link) {
@@ -25,7 +25,11 @@ export class RepoCardComponent {
     }
   }
 
-  public copyLink(link:string){
-    this.clipboard.copy(link)
+  public copyLink(link: string): void {
+    if (!link) {
+      return;
+    }
+
+    this.clipboard.copy(link);
   }
 }
