@@ -13,6 +13,12 @@
     <span></span>
   </button>
 
+  <div class="header-bat-wrap" aria-hidden="true">
+    <div class="header-bat">
+      <div class="bat"></div>
+    </div>
+  </div>
+
   <nav id="site-navigation" class="navbar" [class.is-open]="isMenuOpen" aria-label="Primary navigation">
     <button type="button" class="link" [class.is-active]="activeSection === 'home'" (click)="scrollTo('home')">Home</button>
     <button type="button" class="link" [class.is-active]="activeSection === 'about-me'" (click)="scrollTo('about-me')">About Me</button>
